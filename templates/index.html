@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>SyncNotes — Think together</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+<div class="app-shell">
+  <aside class="sidebar">
+    <div class="brand"><div class="brand-icon">✳</div><div><strong>SyncNotes</strong><small>THINK TOGETHER</small></div></div>
+    <button id="new-note" class="new-note">＋ <span>New note</span></button>
+    <div class="sidebar-label">YOUR WORKSPACE <span id="note-count">0</span></div>
+    <div id="notes-list" class="notes-list"></div>
+    <div class="sidebar-bottom"><span class="status-dot"></span><span>Local workspace</span><span class="version">v1.0</span></div>
+  </aside>
+  <main class="main">
+    <header class="topbar">
+      <div class="breadcrumb">Workspace <span>/</span> <strong id="breadcrumb-title">Welcome to SyncNotes</strong></div>
+      <div class="top-actions"><div class="collab-pill"><span class="live-dot"></span><span id="connection-label">Connecting…</span></div><button id="share-button" class="share-button">↗ Share note</button></div>
+    </header>
+    <section class="editor-wrap">
+      <div class="editor-meta"><div class="note-icon">▤</div><span id="note-id-label">NOTE —</span><span class="meta-divider">·</span><span id="last-saved">Ready to write</span><span class="save-state" id="save-state"><span class="save-dot"></span> Saved</span></div>
+      <input id="note-title" class="title-input" maxlength="120" placeholder="Give your note a title…">
+      <div class="editor-hint"><span class="sparkle">✦</span> A shared space for your best ideas.</div>
+      <textarea id="note-content" class="content-input" placeholder="Start writing something brilliant…"></textarea>
+      <footer class="editor-footer"><span><kbd>⌘</kbd> <kbd>↵</kbd> stays in your flow</span><span id="word-count">0 words</span></footer>
+    </section>
+    <div id="toast" class="toast" role="status"></div>
+  </main>
+</div>
+<script src="https://cdn.socket.io/4.7.5/socket.io.min.js"></script>
+<script src="{{ url_for('static', filename='app.js') }}"></script>
+</body></html>
